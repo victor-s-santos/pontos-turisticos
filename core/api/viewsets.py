@@ -4,9 +4,8 @@ from .serializers import PontosTuristicosSerializer
 
 class PontosTuristicosViewSet(ModelViewSet):
     """
-    queryset = PontosTuristicos.objects.filter(aprovado = True)
-    A ideia mais facil era usar o filter no queryset sem grandes alterações
-    no entanto, por motivos de aprendizagem eu farei da melhor forma neste app
+    The simplest viewset for viewiing and editing accounts, but
+    overwriting the get_queryset.
     """
     serializer_class = PontosTuristicosSerializer
 
