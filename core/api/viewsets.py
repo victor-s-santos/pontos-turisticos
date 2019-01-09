@@ -19,3 +19,10 @@ class PontosTuristicosViewSet(ModelViewSet):
     	"""
     	return Response({'only_a_test': 'it works!'})
 
+    def create(self, request, *args, **kwargs):
+    	"""
+    	By this way the drf always returns(post) the follow 
+    	dictionary.  
+    	"""
+    	return Response({'Hello': request.data['nome']})
+
