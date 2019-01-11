@@ -23,11 +23,19 @@ class PontosTuristicosViewSet(ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         pass
 
-    def retrieve(self, request, *args, **kwargs):
-        pass
+    #def retrieve(self, request, *args, **kwargs):
+        #pass
 
     def update(self, request, *args, **kwargs):
         pass
 
     def partial_update(self, request, *args, **kwargs):
+        pass
+
+    @action(methods=['get', 'post'], detail=True)
+    def denunciar(self, request, pk=None):
+        pass
+
+    @action(methods=['get'], detail=False)
+    def geral_action(self, request):
         pass
