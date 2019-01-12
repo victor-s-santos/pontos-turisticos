@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter
 from core.models import PontosTuristicos
 from .serializers import PontosTuristicosSerializer
 from rest_framework.decorators import action
@@ -10,6 +11,8 @@ class PontosTuristicosViewSet(ModelViewSet):
     overwriting the get_queryset.
     """
     serializer_class = PontosTuristicosSerializer
+    filter_backends = (SearchFilter,)
+    search_fields = ('nome', 'descricao', 'endereco__cidade')
 
     def get_queryset(self):
         id = self.request.query_params.get('id', None)
