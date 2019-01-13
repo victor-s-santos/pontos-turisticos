@@ -13,6 +13,8 @@ class PontosTuristicosViewSet(ModelViewSet):
     serializer_class = PontosTuristicosSerializer
     filter_backends = (SearchFilter,)
     search_fields = ('nome', 'descricao', 'endereco__cidade')
+    lookup_field = ('id')#I prefer to keep the default value
+
 
     def get_queryset(self):
         id = self.request.query_params.get('id', None)
