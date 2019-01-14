@@ -1,9 +1,12 @@
+#from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter
+from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from core.models import PontosTuristicos
 from .serializers import PontosTuristicosSerializer
 from rest_framework.decorators import action
+
 
 class PontosTuristicosViewSet(ModelViewSet):
     """
@@ -12,6 +15,8 @@ class PontosTuristicosViewSet(ModelViewSet):
     """
     serializer_class = PontosTuristicosSerializer
     filter_backends = (SearchFilter,)
+    permission_classes = (DjangoModelPermissions,)
+    #authentication_classes = (TokenAuthentication,)
     search_fields = ('nome', 'descricao', 'endereco__cidade')
     lookup_field = ('id')#I prefer to keep the default value
 
